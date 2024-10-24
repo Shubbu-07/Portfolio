@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/Profile-Photo.jpg";
-import { ArrowRightCircle } from "react-bootstrap-icons";
-import { Link } from 'react-scroll';
+import { BsDownload } from "react-icons/bs";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 
@@ -47,6 +46,11 @@ export const Banner = () => {
     }
   };
 
+  const redirectToDownloadCV = () => {
+    const url = "https://drive.google.com/file/d/1zVCrM58_ZbutMi7UQdYJkfZP7d_2Hb4u/view?usp=sharing";
+    window.open(url, "_blank");
+  }
+
   return (
     <section className="banner" id="home">
       <Container>
@@ -73,11 +77,12 @@ export const Banner = () => {
                     impactful presentations that engage and inspire. Let’s
                     collaborate to bring your ideas to life!
                   </p>
-                  <Link to="connect" smooth={true} duration={500}>
-                    <button>
-                      Let’s Connect <ArrowRightCircle size={25} />
-                    </button>
-                  </Link>
+                  <div style={{ display: "flex", flexDirection: "row" }}>
+                    <button onClick={redirectToDownloadCV}>Download CV</button>
+                    <div className="button-icon" color="black">
+                      <BsDownload size={25} color="white" />
+                    </div>
+                  </div>
                 </div>
               )}
             </TrackVisibility>
